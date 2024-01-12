@@ -20,7 +20,7 @@ const languageSchema = new mongoose.Schema(
   }
 );
 
-const Language =  mongoose.models.Profile || mongoose.model('language', languageSchema);
+const Language =  mongoose.models.Language || mongoose.model('Language', languageSchema);
 
 export default Language 
 

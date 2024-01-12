@@ -11,7 +11,8 @@ class ProjectService {
     }
 
     public async delete(id:Number) {
-        const result = await axios.delete('"/api/projects?id=" + id')
+        console.log(id)
+        const result = await axios.delete("/api/projects?id=" + id)
         .then(i=>i.data)
         .catch(e=> {throw e})
         

@@ -13,7 +13,7 @@ class LanguageService {
 
     public async delete(id:Number) {
 
-        const result = await axios.delete('"/api/language?id=" + id')
+        const result = await axios.delete("/api/language?id=" + id)
         .then(i=>i.data)
         .catch(e=> {throw e})
         

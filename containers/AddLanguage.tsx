@@ -34,7 +34,7 @@ function AddLanguage({ closeModal }: any) {
     }
 
     return (
-        <div className='bg-white rounded p-5 gap-3 flex flex-col  '>
+        <div className='bg-white rounded p-5 gap-3 flex flex-col  text-black '>
             <div className='w-full flex justify-end'>
                 <Button 
                     submit={()=>closeModal()}

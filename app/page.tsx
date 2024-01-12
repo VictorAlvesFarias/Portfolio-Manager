@@ -38,6 +38,7 @@ function Home() {
   function handleDeleteLanguages(id: number) {
     languageService.delete(id)
       .then(item => {
+        handleGetLanguages()
       })
       .catch(e => {
       })
@@ -56,6 +57,7 @@ function Home() {
   function handleDeleteProjects(id: number) {
     projectsService.delete(id)
       .then(item => {
+        handleGetProjects()
       })
       .catch(e => {
       })
@@ -71,7 +73,7 @@ function Home() {
   return (
     <>
       <Suspense fallback="testoing">
-        <div className="  flex flex-col items-center justify-center w-full">
+        <div className=" text-black flex flex-col items-center justify-center w-full">
           <div className="text-zinc-900 text-sm flex w-full flex-col justify-center items-center">
             <Section>
               <div className='w-full'>

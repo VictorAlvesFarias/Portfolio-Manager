@@ -3,7 +3,8 @@ import Language from '@/entitites/Language';
 import mongoose from 'mongoose';
 import { NextRequest, NextResponse } from 'next/server';
 
-const uri: any = process.env.MONGODB_URI ? process.env.MONGODB_URI : "mongodb://localhost:27017/profile"
+const uri: any = process.env.MONGODB_URI ? process.env.MONGODB_URI : 
+// "mongodb://localhost:27017/profile"
 
 export async function POST(req: NextRequest) {
     await mongoose.connect(uri);
