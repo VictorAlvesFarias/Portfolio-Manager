@@ -4,9 +4,6 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod"
 import BaseInput from '@/styled-components/BaseInput'
 import Button from '@/components/Button'
-import BaseFileInput from '@/styled-components/BaseFileInput'
-import Image from 'next/image'
-import Language from '@/entitites/Language'
 import LanguageService from '@/services/LanguageService'
 
 function AddLanguage({ closeModal }: any) {

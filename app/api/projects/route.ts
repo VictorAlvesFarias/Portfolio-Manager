@@ -2,8 +2,7 @@
 import Project from '@/entitites/project';
 import mongoose from 'mongoose';
 import { NextRequest, NextResponse } from 'next/server';
-
-const uri: any = process.env.MONGODB_URI ? process.env.MONGODB_URI :
+import {uri} from '../../../env.ts'
 
 export async function POST(req: NextRequest) {
     await mongoose.connect(uri);
@@ -23,7 +22,6 @@ export async function POST(req: NextRequest) {
 
     if(similiarproject.length > 0) {
         similiarproject[0].order = projects.sort((a,b)=> a-b)[projects.length-1].order + 1
-        console.log(similiarproject[0] )
         await Project.updateOne(similiarproject[0])
     }
 
@@ -46,7 +44,6 @@ export async function DELETE(req: NextRequest) {
 }
 
 export async function GET() {
-    console.log(2)
     await mongoose.connect(uri);
 
     const projects = await Project.find({})

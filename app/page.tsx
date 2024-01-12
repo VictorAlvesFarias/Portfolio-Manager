@@ -25,8 +25,8 @@ function Home() {
 
   const [modalProjects, setModalProjects] = useState(false)
 
-  function handleGetLanguages() {
-    languageService.getAll()
+  async function handleGetLanguages() {
+    await languageService.getAll()
       .then(item => {
         console.log(item)
         setLanguages(item)
@@ -35,8 +35,8 @@ function Home() {
       })
   }
 
-  function handleDeleteLanguages(id: number) {
-    languageService.delete(id)
+  async function handleDeleteLanguages(id: number) {
+    await languageService.delete(id)
       .then(item => {
         handleGetLanguages()
       })
@@ -44,8 +44,8 @@ function Home() {
       })
   }
 
-  function handleGetProjects() {
-    projectsService.getAll()
+  async function handleGetProjects() {
+    await projectsService.getAll()
       .then(item => {
         console.log(item)
         setProjects(item)
@@ -54,8 +54,8 @@ function Home() {
       })
   }
 
-  function handleDeleteProjects(id: number) {
-    projectsService.delete(id)
+  async function handleDeleteProjects(id: number) {
+    await projectsService.delete(id)
       .then(item => {
         handleGetProjects()
       })
@@ -66,9 +66,13 @@ function Home() {
   function handleCloseModal() {
     setModalLanguage(false)
     setModalProjects(false)
-    handleGetLanguages()
-    handleGetProjects() 
   }
+
+  useEffect(() => {
+    handleGetLanguages()
+    handleGetProjects()
+  }, [])
+
 
   return (
     <>
@@ -92,7 +96,7 @@ function Home() {
                 </Modal>
                 <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-3 w-full">
 
-                  {languages != null && languages.sort((a:any, b:any) => a.order - b.order).map((item: any, index: any) =>
+                  {languages != null && languages.sort((a: any, b: any) => a.order - b.order).map((item: any, index: any) =>
                     <div className='relative' key={index}>
                       <Button
                         submit={() => handleDeleteLanguages(item._id)}

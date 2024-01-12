@@ -11,17 +11,12 @@ const nextConfig ={
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'raw.githubusercontent.com',
-                pathname: '**',
-            },        
-            {
-                protocol: 'https',
-                hostname: 'drive.google.com',
-                pathname: '**',
+                hostname: '**',
+                pathname: '**'
             },
             {
-                protocol: 'https',
-                hostname: 'lh3.google.com',
+                protocol: 'http',
+                hostname: '**',
                 pathname: '**'
             }
         ],

@@ -18,11 +18,7 @@ function AddProject({ closeModal }: any) {
         order: z.string().nonempty("Campo Obrigatório"),
         description: z.string().nonempty("Campo Obrigatório"),
         url: z.string().nonempty("Campo Obrigatório"),
-        icon: z.string().nonempty("Campo Obrigatório"),
-        images: z.array(z.object({
-            src: z.string().nonempty("Campo Obrigatório"),
-            name: z.string().nonempty("Campo Obrigatório"),
-        })),
+        icon: z.string().nonempty("Campo Obrigatório")
     })
     
     const formSchemaImage = z.object({
@@ -41,7 +37,6 @@ function AddProject({ closeModal }: any) {
             resolver: zodResolver(formSchemaImage),
         }
     );
-
 
     const [images,setImages] = useState([])
  

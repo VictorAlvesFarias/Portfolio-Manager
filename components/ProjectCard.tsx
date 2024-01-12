@@ -22,7 +22,15 @@ function ProjectCard({data}:any) {
           slides={data.images}
         /> 
         <div className=' flex items-center justify-center rounded-sm shadow-black  w-20 h-20'>
-            <Image width={50} height={50} className='w-10 h-10' src={data.icon} alt="" />
+            <Image alt="" width={50} height={50} className='w-10 h-10' src={       
+               () => {
+                  if(new URL(data.src)){
+                    return data.src;
+                  }
+                else {
+                  return ""
+                }
+              }}/>
         </div>
         <div className='flex flex-col flex-1'>
             <div className="flex justify-between items-center">
