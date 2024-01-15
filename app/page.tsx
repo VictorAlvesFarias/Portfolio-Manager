@@ -73,7 +73,6 @@ function Home() {
     handleGetProjects()
   }, [])
 
-
   return (
     <>
       <Suspense fallback="testoing">
