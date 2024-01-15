@@ -1,8 +1,8 @@
 
-import Project from '@/entitites/project';
+import Project from '@/entitites/Project';
 import mongoose from 'mongoose';
 import { NextRequest, NextResponse } from 'next/server';
-import {uri} from '../../../env.ts'
+import {uri} from '../../../env'
 
 export async function POST(req: NextRequest) {
     await mongoose.connect(uri);

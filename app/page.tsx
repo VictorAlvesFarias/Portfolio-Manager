@@ -9,7 +9,7 @@ import Button from '@/components/Button';
 import Modal from '@/components/Modal';
 import AddLanguage from '@/containers/AddLanguage';
 import AddProject from '@/containers/AddProject';
-import ProjectService from '@/services/projectService';
+import ProjectService from '@/services//ProjectService';
 
 function Home() {
 

@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod"
 import BaseInput from '@/styled-components/BaseInput'
 import Button from '@/components/Button'
-import BaseFileInput from '@/styled-components/BaseFileInput'
-import Image from 'next/image'
-import { url } from 'inspector'
-import ProjectService from '@/services/projectService'
+import ProjectService from '@/services/ProjectService'
 
 function AddProject({ closeModal }: any) {
     
@@ -38,11 +35,11 @@ function AddProject({ closeModal }: any) {
         }
     );
 
-    const [images,setImages] = useState([])
+    const [images,setImages] = useState<any[]>([])
  
     function handleAddImage(data:any) {
 
-        let newList = [...images]
+        let newList:any[] = [...images]
         newList.push(data)
         setImages(newList)
     }
