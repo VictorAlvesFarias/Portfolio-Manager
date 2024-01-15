@@ -7,7 +7,7 @@ import Lightbox from "yet-another-react-lightbox";
 import Counter from "yet-another-react-lightbox/plugins/counter";
 import "yet-another-react-lightbox/styles.css";
 import Eye from './Eye';
-import { TryParseToURL } from '@/extensions/string';
+import { TryParseToURL } from '../extensions/String';
 
 
 function ProjectCard({data}:any) {

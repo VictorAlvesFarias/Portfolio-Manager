@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { TryParseToURL } from '@/extensions/string'
+import { TryParseToURL } from '../extensions/String';
 
 function TecnologieCard({data}:any) {
 
