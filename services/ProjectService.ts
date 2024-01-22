@@ -1,11 +1,11 @@
+import { uri } from "@/env";
 import axios from "axios";
 
 class ProjectService {
     
     public async getAll() {
 
-        console.log("call")
-        const result = await axios.get('/api/projects')
+        const result = await axios.get(uri+'/api/projects')
         .then(i=>i.data)
         .catch(e=> {throw e})
         
@@ -14,8 +14,7 @@ class ProjectService {
 
     public async delete(id:Number) {
         
-        console.log("call")
-        const result = await axios.delete("/api/projects?id=" + id)
+        const result = await axios.delete(uri+"/api/projects?id=" + id)
         .then(i=>i.data)
         .catch(e=> {throw e})
         
@@ -24,8 +23,7 @@ class ProjectService {
 
     public async saveOrUpdate(data:any,images:any) {
         
-        console.log("call")
-        const result = await axios.post("/api/projects" ,{
+        const result = await axios.post(uri+"/api/projects" ,{
             name: data.name,
             order: data.order,
             description: data.description,

@@ -1,11 +1,11 @@
+import { uri } from "@/env";
 import axios from "axios";
 
 class LanguageService {
 
     public async getAll() {
 
-        console.log("call")
-        const result = await axios.get('/api/language')
+        const result = await axios.get(uri+'/api/language')
         .then(i=>i.data)
         .catch(e=> {throw e})
         
@@ -14,8 +14,7 @@ class LanguageService {
 
     public async delete(id:Number) {
 
-        console.log("call")
-        const result = await axios.delete("/api/language?id=" + id)
+        const result = await axios.delete(uri+"/api/language?id=" + id)
         .then(i=>i.data)
         .catch(e=> {throw e})
         
@@ -24,8 +23,7 @@ class LanguageService {
 
     public async saveOrUpdate(data:any) {
         
-        console.log("call")
-        const result = await axios.post("/api/language" ,{
+        const result = await axios.post(uri+"/api/language" ,{
             name: data.name,
             order: data.order,
             src: data.src
