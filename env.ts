@@ -1,1 +1,1 @@
-export const uri: any =  "http://localhost:3001"
+export const uri: any =  "https://victoralves-portfolio-backend.vercel.app"
