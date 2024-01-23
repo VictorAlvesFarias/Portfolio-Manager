@@ -33,7 +33,6 @@ function Home() {
     await loginService.signin(data)
       .then((r) => {
         Cookies.set('auth',r.accessKey[0].code)
-        Cookies.set('date',r.accessKey[0].date)
         router.push("login")
         setLoginLoding(false)
       })
