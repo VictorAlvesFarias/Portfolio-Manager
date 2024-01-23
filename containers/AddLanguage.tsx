@@ -44,7 +44,7 @@ function AddLanguage({ closeModal }: any) {
                 <BaseInput label={"Position"} register={register} errors={errors} name="order"/>
                 <BaseInput label={"Icon"} register={register} errors={errors} name="src" />
                 <Button 
-                    className="m-0 w-fit text-white flex justify-center items-center p-2 bg-purple-300 rounded">
+                    className="h-10 mb-3 w-fit bg-gradient-to-r from-rose-400  to-fuchsia-700  flex items-center justify-center rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]">
                     <p>Save</p>
                 </Button>
             </form>

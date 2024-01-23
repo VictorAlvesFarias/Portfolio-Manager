@@ -15,10 +15,9 @@ import { useRouter } from 'next/navigation'
 
 function Home() {
   
+  const router = useRouter()
   const loginService = new LoginService()
-
   const [loginLoading, setLoginLoding] = useState(false)
-
   const formSchema = z.object({
     password: z.string().nonempty("Campo Obrigatório")
   })
@@ -29,12 +28,13 @@ function Home() {
     }
   );
 
-  async function handleSingIn(data: any) {
-    
+  async function handleSingIn(data: any) { 
     setLoginLoding(true)
     await loginService.signin(data)
       .then((r) => {
-        Cookies.set('auth',r.accessKey[0].code,{expires:1})
+        Cookies.set('auth',r.accessKey[0].code)
+        Cookies.set('date',r.accessKey[0].date)
+        router.push("login")
         setLoginLoding(false)
       })
       .catch(() => {

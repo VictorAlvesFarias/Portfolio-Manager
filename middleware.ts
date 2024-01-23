@@ -1,25 +1,22 @@
 import { NextResponse } from 'next/server'
-import mongoose from 'mongoose';
-import { uri } from './env';
 import LoginService from './services/LoginService';
 
 
 export async function middleware(request: any) {
-  
+
   const cookie = request.cookies.get('auth')?.value
   const pathname = request.nextUrl.pathname
   const loginService = new LoginService()
-
   let auth: any
 
   await loginService.validate(cookie)
-    .then(r => {
-      auth = true
-    })
-    .catch((err) => {
-      auth = false
-      request.cookies.delete('auth')
-    })
+  .then(r => {
+    auth = r.data.authorized? true : false  
+    !r.data.authorized&&request.cookies.delete('auth')  
+  })
+  .catch((err) => {
+    auth = false
+  })
 
   if (pathname != '/login' && auth == false) {
     return NextResponse.redirect(
@@ -27,7 +24,7 @@ export async function middleware(request: any) {
     )
   }
 
-  if (pathname == '/login' && auth == true) {
+  else if ((pathname == '/login'||pathname == '/') && auth == true) {
     return NextResponse.redirect(
       new URL(`/home`, request.url),
     )
