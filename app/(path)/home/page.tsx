@@ -10,9 +10,13 @@ import Modal from '@/components/Modal';
 import AddLanguage from '@/containers/AddLanguage';
 import AddProject from '@/containers/AddProject';
 import ProjectService from '@/services//ProjectService';
+import Gradientline from '@/components/Gradientline';
+import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
 
 function Home() {
 
+  const router = useRouter()
   const languageService = new LanguageService()
   const projectsService = new ProjectService()
   const [projects, setProjects]: any = useState(null)
@@ -61,6 +65,11 @@ function Home() {
     setModalProjects(false)
   }
 
+  function logout() {
+    Cookies.remove('auth')
+    router.refresh()
+  }
+
   useEffect(() => {
     handleGetLanguages()
     handleGetProjects()
@@ -68,10 +77,21 @@ function Home() {
 
   return (
     <div className=" text-black flex flex-col items-center justify-center w-full">
-      <div className="text-zinc-900 text-sm flex w-full flex-col justify-center items-center">
+      <div className="text-zinc-900 text-sm flex w-full flex-col justify-center items-center ">
         <Section>
           <div className='w-full'>
-            <h1 className='text-xl mb-14'>Tecnologies</h1>
+            <div className='flex justify-between'>
+              <div className='mb-14 w-fit'>
+                <h1 className='text-xl '>Tecnologies</h1>
+                <Gradientline></Gradientline>              
+              </div>         
+              <Button
+                submit={logout}
+                className="bg-red-400 h-fit w-fit p-3 rounded text-white">
+                Sair
+              </Button>     
+            </div>
+
             <Button
               submit={() => setModalLanguage(!modalLanguage)}
               className="h-10 mb-3 w-fit bg-gradient-to-r from-rose-400  to-fuchsia-700  flex items-center justify-center rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]">
@@ -101,7 +121,10 @@ function Home() {
         </Section>
         <Section>
           <div className='w-full'>
-            <h1 className='text-xl mb-14'>Projects</h1>
+            <div className='mb-14 w-fit'>
+              <h1 className='text-xl '>Projects</h1>
+              <Gradientline></Gradientline>              
+            </div>
             <Button
               submit={() => setModalProjects(!modalProjects)}
               className="h-10 mb-3 bg-gradient-to-r from-rose-400  to-fuchsia-700  flex items-center justify-center w-fit rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]">
